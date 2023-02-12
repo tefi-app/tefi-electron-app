@@ -17,9 +17,16 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@terra-utilities/*": ["packages/terra-utilities/*"],
-    },
+      "@terra-utilities/*": ["packages/terra-utilities/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Asset/dummy.js", "components/MirrorBorrowing", "packages/terra-utilities/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/Asset/dummy.js",
+    "components/MirrorBorrowing",
+    "packages/terra-utilities/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
