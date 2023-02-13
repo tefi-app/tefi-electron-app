@@ -18,9 +18,7 @@ import { ReactComponent as H1 } from '../assets/h1.svg';
 import { ReactComponent as H2 } from '../assets/h2.svg';
 import { ReactComponent as CLEAR_FORMAT } from '../assets/clear_format.svg';
 
-export interface HoveringToolBarProps {}
-
-export const HoveringToolBar: React.FC<HoveringToolBarProps> = () => {
+export const HoveringToolBar: React.FC = () => {
   const [isInput, setIsInput] = useState<boolean>(false);
   const [inputToolbarPosition, setInputToolbarPosition] = useState<any>({});
   const [selectedArea, setSelectedArea] = useState<any>({});
