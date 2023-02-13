@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Text } from '@contco/core-ui';
+import { Flex, Text } from '@core-ui/index';
 import LIGHT_SWITCH_ICON from '../../public/light-switch.svg';
 import DARK_SWITCH_ICON from '../../public/dark-switch.svg';
 import WALLET_ICON from '../../public/wallet.svg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Flex } from '@contco/core-ui';
+import { Box, Flex } from '@core-ui/index';
 import { SubHeader } from '../SubHeader';
 import { Threads } from '../Threads';
 import { ButtonRound } from '../../UIComponents';

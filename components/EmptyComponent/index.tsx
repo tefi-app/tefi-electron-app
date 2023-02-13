@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Text } from '@contco/core-ui';
+import { Flex, Text } from '@core-ui/index';
 import { REFRESH_ICON } from '../Icons';
 
 const DEFAULT_HEIGHT = 'calc(100vh - 300px)';

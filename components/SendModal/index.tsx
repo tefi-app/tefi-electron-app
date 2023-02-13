@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Modal } from '@contco/core-ui';
+import { Modal } from '@core-ui/index';
 import { InputModal } from './InputModal';
 import { WaitingModal } from './WaitingModal';
 import { BroadcastModal } from './BroadcastModal';

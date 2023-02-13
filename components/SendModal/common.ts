@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Box, Text } from '@contco/core-ui';
+import { Flex, Box, Text } from '@core-ui/index';
 
 export const ModalSmall = styled(Box)`
   ${css({

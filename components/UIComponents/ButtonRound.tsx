@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex } from '@contco/core-ui';
+import { Flex } from '@core-ui/index';
 
 export const ButtonRound = styled(Flex)`
   ${(props) =>

@@ -17,6 +17,8 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
+      "@core-ui/*": ["packages/core-ui/*"],
+      "@editor/*": ["packages/editor/*"],
       "@terra-utilities/*": ["packages/terra-utilities/*"],
     },
   },

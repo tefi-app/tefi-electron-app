@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Text, Avatar } from '@contco/core-ui';
+import { Flex, Text, Avatar } from '@core-ui/index';
 import { format } from 'date-fns';
 import { useRouter } from 'next/router';
 import { TIP_ICON } from '../Icons';

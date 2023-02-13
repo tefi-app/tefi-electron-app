@@ -2,7 +2,7 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import Header from '../../components/Header';
-import { Text } from '@contco/core-ui';
+import { Text } from '@core-ui/index';
 import css from '@styled-system/css';
 import Image from 'next/image';
 import { LIGHT_THEME } from '../../constants';

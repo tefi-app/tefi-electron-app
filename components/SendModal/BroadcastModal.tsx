@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@contco/core-ui';
+import { Box } from '@core-ui/index';
 import { HourGlassIcon } from '../Icons';
 import { TxHash } from './TxHash';
 import { ModalSmall, ContentContainer, IconContainer, Title, SmallText } from './common';

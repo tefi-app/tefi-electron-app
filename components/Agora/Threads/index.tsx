@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Box, Text } from '@contco/core-ui';
+import { Flex, Box, Text } from '@core-ui/index';
 
 const ThreadItem = styled(Flex)`
   ${css({

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Flex, Text } from '@contco/core-ui';
+import { Box, Flex, Text } from '@core-ui/index';
 import { CurrencySelect } from './CurrencySelect';
 import { ButtonRound, Input, InputLabel, ModalLarge } from '../UIComponents';
 import { AccAddress } from '@terra-money/terra.js';

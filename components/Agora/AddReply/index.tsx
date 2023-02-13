@@ -1,8 +1,8 @@
 import React, { useState, useRef, useMemo } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Flex, Text } from '@contco/core-ui';
-import { Editor } from '@contco/editor';
+import { Box, Flex, Text } from '@core-ui/index';
+import { Editor } from '@editor/index';
 import { PostCommentModal } from '../PostCommentModal';
 import { ButtonRound } from '../../UIComponents';
 

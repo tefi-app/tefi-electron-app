@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { TWITTER_ICON, TELEGRAM_ICON } from '../Icons';
-import { Flex, Box } from '@contco/core-ui';
+import { Flex, Box } from '@core-ui/index';
 import css from '@styled-system/css';
 
 export const Link = styled.a``;

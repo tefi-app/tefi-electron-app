@@ -1,4 +1,4 @@
-import { Flex, Text, Button, Input, Box } from '@contco/core-ui';
+import { Flex, Text, Button, Input, Box } from '@core-ui/index';
 import css from '@styled-system/css';
 import styled from 'styled-components';
 
