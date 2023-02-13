@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Flex, Text } from '@contco/core-ui';
-import { RawViewer } from '@contco/editor';
+import { Box, Flex, Text } from '@core-ui/index';
+import { RawViewer } from '@editor/index';
 import { EDIT_ICON } from '../../Icons';
 import useWallet from '../../../lib/useWallet';
 import { EditThreadModal } from '../EditThreadModal';

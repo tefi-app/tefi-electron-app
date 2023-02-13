@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '@contco/core-ui';
+import { Box } from '@core-ui/index';
 import css from '@styled-system/css';
 
 type PercentageProps = {

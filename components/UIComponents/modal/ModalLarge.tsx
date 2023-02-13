@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box } from '@contco/core-ui';
+import { Box } from '@core-ui/index';
 
 export const ModalLarge = styled(Box)`
   ${css({

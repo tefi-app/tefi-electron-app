@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Box, Text } from '@contco/core-ui';
+import { Flex, Box, Text } from '@core-ui/index';
 import useOutsideClickListener from '../../../utils/useOutsideClickListener';
 import { THREAD_CATEGORIES } from '../categories';
 

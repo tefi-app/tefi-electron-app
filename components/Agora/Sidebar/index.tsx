@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Text } from '@contco/core-ui';
+import { Box, Text } from '@core-ui/index';
 import { THREAD_CATEGORIES } from '../categories';
 
 const AGORA_TITLE = 'Discussions';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Text, Flex } from '@contco/core-ui';
+import { Text, Flex } from '@core-ui/index';
 
 const Container = styled(Flex)`
   justify-content: center;

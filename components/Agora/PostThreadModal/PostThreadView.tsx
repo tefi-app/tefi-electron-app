@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Box, Text } from '@contco/core-ui';
-import { Editor } from '@contco/editor';
+import { Flex, Box, Text } from '@core-ui/index';
+import { Editor } from '@editor/index';
 import { MsgExecuteContract } from '@terra-money/terra.js';
 import { ModalLarge, Heading3, InputLabel, Input, ButtonRound } from '../../UIComponents';
 import { CategoryDropDown } from '../SubHeader/CategoryDropDown';

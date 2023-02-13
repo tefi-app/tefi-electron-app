@@ -2,7 +2,7 @@ import Header from '../../components/Header';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { Box } from '@contco/core-ui';
+import { Box } from '@core-ui/index';
 import { AgoraHomeLayout } from '../../components/Agora/AgoraHomeLayout';
 import { ThreadDetail } from '../../components/Agora/ThreadDetail';
 import { Sidebar } from '../../components/Agora/Sidebar';

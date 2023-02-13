@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Text } from '@contco/core-ui';
+import { Flex, Text } from '@core-ui/index';
 import { ArrowDownIcon, LoadingIcon } from '../Icons';
 import useOutsideClickListener from '../../utils/useOutsideClickListener';
 

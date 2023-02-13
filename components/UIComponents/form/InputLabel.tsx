@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Text } from '@contco/core-ui';
+import { Text } from '@core-ui/index';
 
 export const InputLabel = styled(Text)`
   ${css({

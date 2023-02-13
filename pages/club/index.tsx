@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Box } from '@contco/core-ui';
+import { Flex, Box } from '@core-ui/index';
 import Create from '../../components/Feed/Create';
 import Posts from '../../components/Feed/Posts';
 import Header from '../../components/Header';

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Flex } from '@contco/core-ui';
+import { Box, Flex } from '@core-ui/index';
 import { ReplyView } from '../ReplyView';
 import { ButtonRound } from '../../UIComponents';
 import { useRepliesByThread } from '../../../data/useRepliesByThread';

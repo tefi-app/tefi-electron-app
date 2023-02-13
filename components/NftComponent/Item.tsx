@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Text } from '@contco/core-ui';
+import { Flex, Text } from '@core-ui/index';
 import useWallet from '../../lib/useWallet';
 import { useModalContext } from '../../contexts';
 import { SEND_ICON as SendIcon } from '../Icons';

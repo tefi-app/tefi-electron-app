@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box } from '@contco/core-ui';
+import { Flex, Box } from '@core-ui/index';
 import styled from 'styled-components';
 import { AnimatedCircle } from './NftComponent';
 

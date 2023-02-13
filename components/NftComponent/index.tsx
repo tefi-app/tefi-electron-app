@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Flex, Box } from '@contco/core-ui';
+import { Flex, Box } from '@core-ui/index';
 import { Logo } from './AnimatedCircle';
 import Collection from './Collection';
 

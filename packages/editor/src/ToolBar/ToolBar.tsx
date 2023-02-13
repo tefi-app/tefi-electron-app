@@ -27,9 +27,7 @@ export const FixedMenu: any = React.forwardRef(({ ...props }, ref: React.Ref<HTM
   <StyledMenu ref={ref} {...props} />
 ));
 
-export interface ToolBarProps {}
-
-export const ToolBar: React.FC<ToolBarProps> = () => {
+export const ToolBar: React.FC = () => {
   const [isInput, setIsInput] = useState<boolean>(false);
   const [inputToolbarPosition, setInputToolbarPosition] = useState<any>({});
   const [selectedArea, setSelectedArea] = useState<any>({});
