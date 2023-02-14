@@ -1,43 +1,46 @@
 import useSWRInfinite from 'swr/infinite';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { CLUB_SERVER_ROOT } from '../constants';
 import { queryClientForRepliesByThreadId } from 'helpers/queries';
 
 const DEFAULT_LIMIT = 10;
 
-const getKey = async (pageIndex: number, previousPageData: any, id: number | null) => {
+interface URL {
+  id: number;
+  limit: number;
+  offset: number;
+}
+
+const getKey = (pageIndex: number, previousPageData: any, id: number | null) => {
   if (!id) return null;
-  if (pageIndex === 0) {
-    try {
-      const result = await queryClientForRepliesByThreadId(
-        0,
-        DEFAULT_LIMIT,
-        id,
-        process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
-      );
-      return result ?? {};
-      // eslint-disable-next-line no-empty
-    } catch (err) {}
-  }
+  if (pageIndex === 0)
+    return {
+      id: id,
+      limit: DEFAULT_LIMIT,
+      offset: 0,
+    } as URL;
 
   if (!previousPageData) return null;
-
-  const offset = DEFAULT_LIMIT * pageIndex;
-
-  try {
-    const result = await queryClientForRepliesByThreadId(
-      offset,
-      DEFAULT_LIMIT,
-      id,
-      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
-    );
-    return result ?? {};
-    // eslint-disable-next-line no-empty
-  } catch (err) {}
+  return {
+    id: id,
+    limit: DEFAULT_LIMIT,
+    offset: DEFAULT_LIMIT * pageIndex,
+  } as URL;
 };
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const fetcher = async (obj: URL) => {
+  try {
+    const result = await queryClientForRepliesByThreadId(
+      obj.offset,
+      obj.limit,
+      obj.id,
+      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+    );
+    return result;
+  } catch (err) {
+    return err;
+  }
+};
 
 export const useRepliesByThread = (id: number | null) => {
   const { data, error, size, setSize, mutate } = useSWRInfinite(

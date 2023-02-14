@@ -1,19 +1,21 @@
 import useSWR from 'swr';
-import axios from 'axios';
 import { queryClientForThreadById } from 'helpers/queries';
 
-const getKey = async (id: string) => {
+const getKey = (id: string) => {
+  if (!id) return null;
+  return id;
+};
+
+const fetcher = async (id: string) => {
   try {
     if (!id) return null;
     const parseId = parseInt(id);
     const result = await queryClientForThreadById(parseId, process.env.NEXT_PUBLIC_IS_TESTNET ? true : false);
     return result;
   } catch (err) {
-    return null;
+    return err;
   }
 };
-
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const useThreadById = (id: string) => {
   const { data, error } = useSWR(getKey(id), fetcher);

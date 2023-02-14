@@ -1,43 +1,45 @@
 import useSWRInfinite from 'swr/infinite';
-import axios from 'axios';
 import { CLUB_SERVER_ROOT } from '../constants';
 import { useState, useEffect } from 'react';
 import { queryClientForThreadsByCategory } from 'helpers/queries';
 
 const DEFAULT_LIMIT = 10;
 
-const getKey = async (pageIndex: number, previousPageData: any, category: string) => {
+interface URL {
+  category: string;
+  limit: number;
+  offset: number;
+}
+
+const getKey = (pageIndex: number, previousPageData: any, category: string) => {
   if (!category) return null;
-  if (pageIndex === 0) {
-    try {
-      const result = await queryClientForThreadsByCategory(
-        0,
-        DEFAULT_LIMIT,
-        category,
-        process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
-      );
-      return result ?? [];
-      // eslint-disable-next-line no-empty
-    } catch (err) {}
-  }
-
+  if (pageIndex === 0)
+    return {
+      category: category,
+      limit: DEFAULT_LIMIT,
+      offset: 0,
+    } as URL;
   if (!previousPageData) return null;
-
-  const offset = DEFAULT_LIMIT * pageIndex;
-
-  try {
-    const result = await queryClientForThreadsByCategory(
-      offset,
-      DEFAULT_LIMIT,
-      category,
-      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
-    );
-    return result ?? [];
-    // eslint-disable-next-line no-empty
-  } catch (err) {}
+  return {
+    category: category,
+    limit: DEFAULT_LIMIT,
+    offset: DEFAULT_LIMIT * pageIndex,
+  } as URL;
 };
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const fetcher = async (obj: URL) => {
+  try {
+    const result = await queryClientForThreadsByCategory(
+      obj.offset,
+      obj.limit,
+      obj.category,
+      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+    );
+    return result;
+  } catch (err) {
+    return err;
+  }
+};
 
 export const useThreadsByCategory = (category: string) => {
   const { data, error, size, setSize } = useSWRInfinite(
