@@ -2,23 +2,39 @@ import useSWRInfinite from 'swr/infinite';
 import axios from 'axios';
 import { CLUB_SERVER_ROOT } from '../constants';
 import { useState, useEffect } from 'react';
+import { queryClientForThreadsByCategory } from 'helpers/queries';
 
 const DEFAULT_LIMIT = 10;
 
-const getKey = (pageIndex: number, previousPageData: any, category: string) => {
+const getKey = async (pageIndex: number, previousPageData: any, category: string) => {
   if (!category) return null;
-  if (pageIndex === 0)
-    return `${CLUB_SERVER_ROOT}/dagora/threads/${category}?limit=${DEFAULT_LIMIT}&isTestnet=${
-      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
-    }`;
+  if (pageIndex === 0) {
+    try {
+      const result = await queryClientForThreadsByCategory(
+        0,
+        DEFAULT_LIMIT,
+        category,
+        process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+      );
+      return result ?? [];
+      // eslint-disable-next-line no-empty
+    } catch (err) {}
+  }
 
   if (!previousPageData) return null;
 
   const offset = DEFAULT_LIMIT * pageIndex;
 
-  return `${CLUB_SERVER_ROOT}/dagora/threads/${category}?limit=${DEFAULT_LIMIT}&offset=${offset}&isTestnet=${
-    process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
-  }`;
+  try {
+    const result = await queryClientForThreadsByCategory(
+      offset,
+      DEFAULT_LIMIT,
+      category,
+      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+    );
+    return result ?? [];
+    // eslint-disable-next-line no-empty
+  } catch (err) {}
 };
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);

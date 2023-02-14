@@ -2,23 +2,39 @@ import useSWRInfinite from 'swr/infinite';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CLUB_SERVER_ROOT } from '../constants';
+import { queryClientForRepliesByThreadId } from 'helpers/queries';
 
 const DEFAULT_LIMIT = 10;
 
-const getKey = (pageIndex: number, previousPageData: any, id: number | null) => {
+const getKey = async (pageIndex: number, previousPageData: any, id: number | null) => {
   if (!id) return null;
-  if (pageIndex === 0)
-    return `${CLUB_SERVER_ROOT}/dagora/thread/${id}/replies?limit=${DEFAULT_LIMIT}&isTestnet=${
-      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
-    }`;
+  if (pageIndex === 0) {
+    try {
+      const result = await queryClientForRepliesByThreadId(
+        0,
+        DEFAULT_LIMIT,
+        id,
+        process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+      );
+      return result ?? {};
+      // eslint-disable-next-line no-empty
+    } catch (err) {}
+  }
 
   if (!previousPageData) return null;
 
   const offset = DEFAULT_LIMIT * pageIndex;
 
-  return `${CLUB_SERVER_ROOT}/dagora/thread/${id}/replies?limit=${DEFAULT_LIMIT}&offset=${offset}&isTestnet=${
-    process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
-  }`;
+  try {
+    const result = await queryClientForRepliesByThreadId(
+      offset,
+      DEFAULT_LIMIT,
+      id,
+      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+    );
+    return result ?? {};
+    // eslint-disable-next-line no-empty
+  } catch (err) {}
 };
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
