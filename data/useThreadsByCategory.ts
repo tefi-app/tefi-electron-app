@@ -1,27 +1,45 @@
 import useSWRInfinite from 'swr/infinite';
-import axios from 'axios';
 import { CLUB_SERVER_ROOT } from '../constants';
 import { useState, useEffect } from 'react';
+import { queryClientForThreadsByCategory } from 'helpers/queries';
 
 const DEFAULT_LIMIT = 10;
+
+interface URL {
+  category: string;
+  limit: number;
+  offset: number;
+}
 
 const getKey = (pageIndex: number, previousPageData: any, category: string) => {
   if (!category) return null;
   if (pageIndex === 0)
-    return `${CLUB_SERVER_ROOT}/dagora/threads/${category}?limit=${DEFAULT_LIMIT}&isTestnet=${
-      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
-    }`;
-
+    return {
+      category: category,
+      limit: DEFAULT_LIMIT,
+      offset: 0,
+    } as URL;
   if (!previousPageData) return null;
-
-  const offset = DEFAULT_LIMIT * pageIndex;
-
-  return `${CLUB_SERVER_ROOT}/dagora/threads/${category}?limit=${DEFAULT_LIMIT}&offset=${offset}&isTestnet=${
-    process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
-  }`;
+  return {
+    category: category,
+    limit: DEFAULT_LIMIT,
+    offset: DEFAULT_LIMIT * pageIndex,
+  } as URL;
 };
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const fetcher = async (obj: URL) => {
+  try {
+    const result = await queryClientForThreadsByCategory(
+      obj.offset,
+      obj.limit,
+      obj.category,
+      process.env.NEXT_PUBLIC_IS_TESTNET ? true : false,
+    );
+    return result;
+  } catch (err) {
+    return err;
+  }
+};
 
 export const useThreadsByCategory = (category: string) => {
   const { data, error, size, setSize } = useSWRInfinite(

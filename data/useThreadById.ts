@@ -1,13 +1,21 @@
 import useSWR from 'swr';
-import axios from 'axios';
-import { CLUB_SERVER_ROOT } from '../constants';
+import { queryClientForThreadById } from 'helpers/queries';
 
 const getKey = (id: string) => {
   if (!id) return null;
-  return `${CLUB_SERVER_ROOT}/dagora/thread/${id}?isTestnet=${process.env.NEXT_PUBLIC_IS_TESTNET ? true : false}`;
+  return id;
 };
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const fetcher = async (id: string) => {
+  try {
+    if (!id) return null;
+    const parseId = parseInt(id);
+    const result = await queryClientForThreadById(parseId, process.env.NEXT_PUBLIC_IS_TESTNET ? true : false);
+    return result;
+  } catch (err) {
+    return err;
+  }
+};
 
 export const useThreadById = (id: string) => {
   const { data, error } = useSWR(getKey(id), fetcher);
