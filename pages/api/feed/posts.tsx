@@ -1,10 +1,7 @@
-import { MICRO } from '@terra-utilities/index';
+import { FCD_URL, MICRO } from '@terra-utilities/index';
 import { formatTxData } from '../../../transactions/fetchTx';
-import { CLUB_SERVER_ROOT } from '../../../constants';
-import axios from 'axios';
-
-//const ADDRESS = 'terra1lpccq0w9e36nlzhx3m6t8pphx8ncavslyul29g';
-
+const { curly } = require('node-libcurl');
+const ADDRESS = 'terra1lpccq0w9e36nlzhx3m6t8pphx8ncavslyul29g';
 const FILTER_POST_UST = '0.1';
 
 const checkValidPost = (post) => {
@@ -33,14 +30,19 @@ const filterAndFormatPost = (data) => {
   return result;
 };
 
+const _getPost = async (offset = 0, limit = 100) => {
+  try {
+    const { data } = await curly.get(`${FCD_URL}/v1/txs?offset=${offset}&limit=${limit}&account=${ADDRESS}`);
+    return { ...data };
+  } catch (err) {
+    return { err };
+  }
+};
+
 export const getPost = async (offset = 0, limit = 100) => {
   try {
-    const query = `${CLUB_SERVER_ROOT}/posts?offset=${offset}&limit=${limit}`;
-    const postRequest = await axios.get(query, {
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    });
+    const result = await _getPost(offset, limit);
+    const postRequest = result ?? [];
     const next = postRequest?.data?.next ?? false;
     const posts = postRequest?.data && filterAndFormatPost(postRequest?.data);
     return { posts, next };
