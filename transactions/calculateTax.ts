@@ -1,13 +1,13 @@
 import BigNumber from 'bignumber.js';
 import { Coin } from '@terra-money/terra.js';
 import { LCD_URL } from '@terra-utilities/index';
-const { curly } = require('node-libcurl');
+import axios from 'axios';
 
 const DEFAULT_DENOM = 'uusd';
 
 const fetchCapital = async (denom = DEFAULT_DENOM) => {
   try {
-    const result = await curly.get(`${LCD_URL}/terra/treasury/v1beta1/tax_caps/${denom}`);
+    const result = await axios.get(`${LCD_URL}/terra/treasury/v1beta1/tax_caps/${denom}`);
     const data = result?.data ?? {};
     const taxCap = data?.tax_cap;
     return taxCap;
@@ -18,7 +18,7 @@ const fetchCapital = async (denom = DEFAULT_DENOM) => {
 
 export const calculateTax = async (amount: string, denom = DEFAULT_DENOM) => {
   try {
-    const result = await curly.get(`${LCD_URL}/terra/treasury/v1beta1/tax_rate`);
+    const result = await axios.get(`${LCD_URL}/terra/treasury/v1beta1/tax_rate`);
     const { data: taxRateResult } = result?.data ?? {};
     const taxRate = taxRateResult?.tax_rate ?? '0';
     const taxCap = denom === 'uluna' ? '0' : await fetchCapital(denom);

@@ -1,6 +1,6 @@
 import { FCD_URL, MICRO } from '@terra-utilities/index';
 import { formatTxData } from '../../../transactions/fetchTx';
-const { curly } = require('node-libcurl');
+import axios from 'axios';
 const ADDRESS = 'terra1lpccq0w9e36nlzhx3m6t8pphx8ncavslyul29g';
 const FILTER_POST_UST = '0.1';
 
@@ -32,7 +32,7 @@ const filterAndFormatPost = (data) => {
 
 const _getPost = async (offset = 0, limit = 100) => {
   try {
-    const { data } = await curly.get(`${FCD_URL}/v1/txs?offset=${offset}&limit=${limit}&account=${ADDRESS}`);
+    const { data } = await axios.get(`${FCD_URL}/v1/txs?offset=${offset}&limit=${limit}&account=${ADDRESS}`);
     return { ...data };
   } catch (err) {
     return { err };

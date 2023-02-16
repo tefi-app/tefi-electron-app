@@ -1,9 +1,9 @@
 import useSWR from 'swr';
 import { useMemo, useState } from 'react';
-const { curly } = require('node-libcurl');
 const { TERRA_SYMBOLS } = require('../symbols');
 import { round, evaluate } from 'mathjs';
 import { FCD_URL, MICRO } from '@terra-utilities/index';
+import axios from 'axios';
 
 const generateDashboardAssets = (assets) => {
   if (assets) {
@@ -56,7 +56,7 @@ const calculateTokenUSTCValue = (amount, denom, swapRates) => {
 };
 
 const getSwapRates = async () => {
-  const result = await curly.get(`${FCD_URL}/v1/market/swaprate/uusd`);
+  const result = await axios.get(`${FCD_URL}/v1/market/swaprate/uusd`);
   if (result.data) {
     const swapRates = result.data.reduce((accum, currentValue) => {
       accum[currentValue.denom] = currentValue;
@@ -69,7 +69,7 @@ const getSwapRates = async () => {
 };
 
 const fetchAccountInfo = async (address) => {
-  const result = await curly.get(`${FCD_URL}/v1/bank/${address}`);
+  const result = await axios.get(`${FCD_URL}/v1/bank/${address}`);
   return result.data;
 };
 

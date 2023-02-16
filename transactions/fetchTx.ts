@@ -1,7 +1,5 @@
+import { TESTNET_LCD_URL, LCD_URL } from '@terra-utilities/index';
 import axios from 'axios';
-
-const TEST_TX_FETCH_URL = 'https://tequila-fcd.terra.dev/v1/tx/';
-const TX_FETCH_URL = 'https://fcd.terra.dev/v1/tx/';
 
 export const formatTxData: (a: any) => txData = (txResult: any) => {
   return {
@@ -14,12 +12,11 @@ export const formatTxData: (a: any) => txData = (txResult: any) => {
   };
 };
 
-export const fetchTx = async (txHash: string, network = 'mainnet') => {
+export const fetchTx = async (txHash: string, _network = 'mainnet') => {
   try {
-    const url = network === 'mainnet' ? TX_FETCH_URL : TEST_TX_FETCH_URL;
-    const { data } = await axios.get(url + txHash);
-    const txData = formatTxData(data);
-    return txData;
+    const lcdUrl = process.env.NEXT_PUBLIC_SOMETHINGSSS ? TESTNET_LCD_URL : LCD_URL;
+    const result = await axios.get(`${lcdUrl}/cosmos/tx/v1beta1/txs/${txHash}`);
+    return result?.data;
   } catch (err) {
     return { error: true, msg: 'Error fetching tx data' };
   }
