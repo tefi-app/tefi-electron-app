@@ -14,7 +14,7 @@ export const formatTxData: (a: any) => txData = (txResult: any) => {
 
 export const fetchTx = async (txHash: string, _network = 'mainnet') => {
   try {
-    const lcdUrl = process.env.NEXT_PUBLIC_SOMETHINGSSS ? TESTNET_LCD_URL : LCD_URL;
+    const lcdUrl = process.env.NEXT_PUBLIC_IS_TESTNET ? TESTNET_LCD_URL : LCD_URL;
     const result = await axios.get(`${lcdUrl}/cosmos/tx/v1beta1/txs/${txHash}`);
     return result?.data;
   } catch (err) {

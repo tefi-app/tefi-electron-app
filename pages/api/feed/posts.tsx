@@ -32,7 +32,7 @@ const filterAndFormatPost = (data) => {
 
 const _getPost = async (offset = 0, limit = 100) => {
   try {
-    const { data } = await axios.get(`${FCD_URL}/v1/txs?offset=${offset}&limit=${limit}&account=${ADDRESS}`);
+    const { data } = await axios.get(`${FCD_URL}v1/txs?offset=${offset}&limit=${limit}&account=${ADDRESS}`);
     return { ...data };
   } catch (err) {
     return { err };
@@ -45,7 +45,7 @@ export const getPost = async (offset = 0, limit = 100) => {
     const postRequest = result ?? [];
     const next = postRequest?.data?.next ?? false;
     const posts = postRequest?.data && filterAndFormatPost(postRequest?.data);
-    return { posts, next };
+    return { posts: JSON.parse(JSON.stringify(posts)), next: JSON.parse(JSON.stringify(next)) };
   } catch (err) {
     return { posts: [], next: false };
   }
