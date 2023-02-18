@@ -6,15 +6,6 @@ import axios from 'axios';
 const ADDRESS = 'terra1lpccq0w9e36nlzhx3m6t8pphx8ncavslyul29g';
 const FILTER_POST_UST = '0.1';
 
-// const getPost = async (offset: number, limit: number) => {
-//   const { data } = await axios.get(`${FCD_URL}v1/txs?offset=${offset}&limit=${limit}&account=${ADDRESS}`);
-//   const result = { ...data};
-//   const postRequest = result ?? [];
-//   const next = postRequest?.next ?? false;
-//   const posts = postRequest && filterAndFormatPost(postRequest);
-//   return { posts, next };
-// };
-
 const filterAndFormatPost = (data: any) => {
   const transactions = data.txs;
   const result = transactions.reduce((postList: any[], post: any) => {
@@ -72,13 +63,3 @@ const usePosts = (offset = 0, limit = 100) => {
 };
 
 export default usePosts;
-
-// export const usePosts = (offset = 0, limit = 100) => {
-//   const [posts, setPosts] = useState([]);
-
-//   getPost(offset, limit).then((data) => {
-//     setPosts(data.posts);
-//   });
-
-//   return { posts, setPosts };
-// };

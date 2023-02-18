@@ -222,14 +222,4 @@ const Feeds: React.FC = ({ theme: currentTheme, changeTheme, posts, next }: any)
   );
 };
 
-// export async function getServerSideProps() {
-//   const { posts, next } = await getPost();
-//   return {
-//     props: {
-//       posts,
-//       next,
-//     },
-//   };
-// }
-
 export default Feeds;
