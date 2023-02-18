@@ -9,12 +9,12 @@ import Header from '../../components/Header';
 import { CLUB_DEPOSIT_ADDRESS, WALLET_ADDRESS_TYPE } from '../../constants';
 import useWallet from '../../lib/useWallet';
 import { sendToken } from '../../transactions/sendToken';
-import { getPost } from '../api/feed/posts';
 import ConnectModal from '../../components/ConnectModal';
 import { WalletConnectType } from '../../constants';
 import { throttle, difference } from 'lodash';
 import { LoadingIcon } from '../../components/Icons';
 import { useDeviceDetect } from '../../contexts';
+import usePosts from '../../data/usePost';
 
 const SEND_AMOUNT = '0.1';
 
@@ -85,7 +85,7 @@ const Feeds: React.FC = ({ theme: currentTheme, changeTheme, posts, next }: any)
     _setFeedPosts(posts);
   };
 
-  const setNextOffset = (next: number | boolean) => {
+  const setNextOffset = (next: any) => {
     nextOffsetRef.current = next;
     _setNextOffset(next);
   };
@@ -105,7 +105,7 @@ const Feeds: React.FC = ({ theme: currentTheme, changeTheme, posts, next }: any)
 
   const refetchLatestPosts = async () => {
     setLoading(true);
-    const { posts: latestPosts } = await getPost();
+    const { posts: latestPosts } = await usePosts();
     setLoading(false);
     if (latestPosts.length && feedPosts.length) {
       const newlyAddedPosts = difference(latestPosts, feedPosts);
@@ -128,7 +128,7 @@ const Feeds: React.FC = ({ theme: currentTheme, changeTheme, posts, next }: any)
     if (nextOffsetRef.current && !isInfiniteLoadingRef.current) {
       setIsInfiniteLoading(true);
       const offset = nextOffsetRef.current as number;
-      const { posts, next } = await getPost(offset);
+      const { posts, next } = await usePosts(offset);
       setNextOffset(next);
       setFeedPosts([...feedPostsRef.current, ...posts]);
       setIsInfiniteLoading(false);
@@ -221,15 +221,5 @@ const Feeds: React.FC = ({ theme: currentTheme, changeTheme, posts, next }: any)
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const { posts, next } = await getPost();
-  return {
-    props: {
-      posts,
-      next,
-    },
-  };
-}
 
 export default Feeds;
