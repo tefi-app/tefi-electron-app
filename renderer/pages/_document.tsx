@@ -1,6 +1,6 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { Keywords } from '../../constants';
+import { Keywords } from '@constants/index';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

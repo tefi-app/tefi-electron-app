@@ -7,7 +7,7 @@ import { LightSwitchIcon, DarkSwitchIcon, AnimatedRefresh, RefreshIcon } from '.
 import { useRouter } from 'next/router';
 import { useModalContext } from '../../contexts';
 
-import { LIGHT_THEME } from '../../../constants';
+import { LIGHT_THEME } from '@constants/index';
 import Section from './Section';
 
 import { INTERNAL_LINKS, TOOLS_LINKS } from './data';

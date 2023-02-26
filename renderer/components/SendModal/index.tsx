@@ -12,7 +12,7 @@ import useWallet from '../../lib/useWallet';
 import { useAccount } from '../../data/useAccount';
 import { useInterval } from '../../utils/useInterval';
 import axios from 'axios';
-import { CLUB_SERVER_ROOT } from '../../../constants';
+import { CLUB_SERVER_ROOT } from '@constants/index';
 import { sendContractMsg } from '../../transactions/sendContract';
 
 const POLLING_INTERVAL = 1000;

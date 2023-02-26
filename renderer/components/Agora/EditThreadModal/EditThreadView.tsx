@@ -7,7 +7,7 @@ import { Flex, Box, Text } from '@core-ui/index';
 import { Editor } from '@editor/index';
 import { MsgExecuteContract } from '@terra-money/terra.js';
 import { ModalLarge, Heading3, InputLabel, Input, ButtonRound } from '../../UIComponents';
-import { CLUB_SERVER_ROOT, TEFI_DAGORA_CONTRACT_ADDRESS } from '../../../../constants';
+import { CLUB_SERVER_ROOT, TEFI_DAGORA_CONTRACT_ADDRESS } from '@constants/index';
 import { simulateSendContractMsg } from '../../../transactions/sendContract';
 import useWallet from '../../../lib/useWallet';
 import { useThreadsByCategory } from '../../../data/useThreadsByCategory';

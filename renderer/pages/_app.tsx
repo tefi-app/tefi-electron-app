@@ -8,7 +8,7 @@ import { WalletConnectProvider, RedirectProvider, DeviceDetectProvider, ModalPro
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
 import { lightTheme, darkTheme } from '../styles/theme';
-import { LIGHT_THEME, DARK_THEME } from '../../constants';
+import { LIGHT_THEME, DARK_THEME } from '@constants/index';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps);

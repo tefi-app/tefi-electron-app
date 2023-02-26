@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import { useRouter } from 'next/router';
 import { TIP_ICON } from '../Icons';
 import { useModalContext } from '../../contexts';
-import { CLUB_DEPOSIT_ADDRESS, LIGHT_THEME } from '../../../constants';
+import { CLUB_DEPOSIT_ADDRESS, LIGHT_THEME } from '@constants/index';
 
 const Container = styled.div`
   width: 100%;

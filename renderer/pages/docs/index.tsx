@@ -5,9 +5,9 @@ import Header from '../../components/Header';
 import { Text } from '@core-ui/index';
 import css from '@styled-system/css';
 import Image from 'next/image';
-import { LIGHT_THEME } from '../../../constants';
+import { LIGHT_THEME } from '@constants/index';
 import { CodeBlock, atomOneLight, atomOneDark } from 'react-code-blocks';
-import { CODE_EXAMPLE } from '../../constants/docs-data';
+import { CODE_EXAMPLE } from '@constants/docs-data';
 import { DOCS_SEO } from '../../next-seo.config';
 
 const MainContainer = styled.div`

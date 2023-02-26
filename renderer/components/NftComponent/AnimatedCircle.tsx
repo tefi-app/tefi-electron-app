@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
-import { LIGHT_THEME } from '../../../constants';
+import { LIGHT_THEME } from '@constants/index';
 
 interface LogoProps {
   width: string;

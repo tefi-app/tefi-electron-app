@@ -1,6 +1,6 @@
 import useSWRInfinite from 'swr/infinite';
 import { useState, useEffect } from 'react';
-import { CLUB_SERVER_ROOT } from '../../constants';
+import { CLUB_SERVER_ROOT } from '@constants/index';
 import { queryClientForRepliesByThreadId } from 'helpers/queries';
 
 const DEFAULT_LIMIT = 10;
