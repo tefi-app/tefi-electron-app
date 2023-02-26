@@ -1,34 +1,28 @@
 {
-  "noImplicitAny": false,
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "baseUrl": "./",
-    "paths": {
-      "@core-ui/*": ["packages/core-ui/*"],
-      "@editor/*": ["packages/editor/*"],
-      "@terra-utilities/*": ["packages/terra-utilities/*"]
-    }
+    "jsx": "preserve"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "components/Asset/dummy.js",
-    "components/MirrorBorrowing",
-    "packages/terra-utilities/*.ts"
-  ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "renderer/next.config.js",
+    "app",
+    "dist"
+  ]
 }

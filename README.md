@@ -1,21 +1,38 @@
-# TeFi App
+<p align="center"><img src="https://i.imgur.com/NZfsD1p.png"></p>
 
-**Instructions to use**
+## Usage
 
-**Step1:**
+### Create an App
 
-1.  Clone the repo.
-2.  Run `npm install` in the root directory.
+```
+# with npx
+$ npx create-nextron-app my-app --example basic-typescript
 
-**Step2:**
-Compile required dependencies from the packages directory.
-Open the packages directory and inside each directory:
+# with yarn
+$ yarn create nextron-app my-app --example basic-typescript
 
-1.  Install Dependencies using `npm run install` and then `npm run build`
-2.  Run `npm pack` to create a .tgz file
-3.  Link the package file to the root package.json using file path e.g. `"@contco/editor": "file:packages/editor/contco-editor-v1.1.17.tgz"`
+# with pnpx
+$ pnpx create-nextron-app my-app --example basic-typescript
+```
 
-**Step3:**
+### Install Dependencies
 
-1.  Run `npm run dev`
-2.  Open [http://localhost:3003](http://localhost:3003) on your browser.
+```
+$ cd my-app
+
+# using yarn or npm
+$ yarn (or `npm install`)
+
+# using pnpm
+$ pnpm install --shamefully-hoist
+```
+
+### Use it
+
+```
+# development mode
+$ yarn dev (or `npm run dev` or `pnpm run dev`)
+
+# production build
+$ yarn build (or `npm run build` or `pnpm run build`)
+```
