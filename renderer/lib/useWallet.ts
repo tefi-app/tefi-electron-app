@@ -1,5 +1,5 @@
 import { useWallet, useConnectedWallet, ConnectType } from '@terra-money/wallet-provider';
-import { WalletConnectType } from '../../constants';
+import { WalletConnectType } from '@constants/index';
 
 const useWalletConnect = () => {
   const { availableConnectTypes, availableInstallTypes, connect, install, disconnect, post } = useWallet();

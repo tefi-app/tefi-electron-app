@@ -1,4 +1,4 @@
-import { DGORA_TESTNET_CONTRACT_ADDRESS } from '../../constants';
+import { DGORA_TESTNET_CONTRACT_ADDRESS } from '@constants/index';
 import { terraTestnetClient, terraClient } from '../lib/lcdClients';
 
 export const queryClientForThreadsByCategory = async (offset = 0, limit = 10, category, isTestnet) => {

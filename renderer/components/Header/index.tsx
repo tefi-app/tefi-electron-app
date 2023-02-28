@@ -18,7 +18,7 @@ import {
 
 import useWallet from '../../lib/useWallet';
 
-import { WALLET_ADDRESS_TYPE, LOCAL_ADDRESS_TYPE, ADDRESS_KEY } from '../../../constants';
+import { WALLET_ADDRESS_TYPE, LOCAL_ADDRESS_TYPE, ADDRESS_KEY } from '@constants/index';
 
 type Props = {
   theme: string;

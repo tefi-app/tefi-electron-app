@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 import { Flex, Box, Text, Modal } from '@core-ui/index';
-import { WalletConnectType } from '../../../constants';
+import { WalletConnectType } from '@constants/index';
 import useWallet from '../../lib/useWallet';
 import { useDeviceDetect } from '../../contexts';
 

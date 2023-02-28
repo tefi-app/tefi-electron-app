@@ -20,7 +20,8 @@
     "paths": {
       "@core-ui/*": ["packages/core-ui/*"],
       "@editor/*": ["packages/editor/*"],
-      "@terra-utilities/*": ["packages/terra-utilities/*"]
+      "@terra-utilities/*": ["packages/terra-utilities/*"],
+      "@constants/*": ["constants/*"]
     }
   },
   "include": [

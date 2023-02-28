@@ -1,5 +1,5 @@
 import useSWRInfinite from 'swr/infinite';
-import { CLUB_SERVER_ROOT } from '../../constants';
+import { CLUB_SERVER_ROOT } from '@constants/index';
 import { useState, useEffect } from 'react';
 import { queryClientForThreadsByCategory } from 'helpers/queries';
 

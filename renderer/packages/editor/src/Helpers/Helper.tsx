@@ -39,7 +39,7 @@ export const Menu: any = React.forwardRef(({ ...props }, ref: React.Ref<HTMLDivE
 interface PortalProps {
   children: React.ReactNode;
 }
-export const Portal: React.SFC<PortalProps> = ({ children }: PortalProps) => {
+export const Portal: React.FunctionComponent<PortalProps> = ({ children }: PortalProps) => {
   let container;
   if (typeof window !== 'undefined') {
     const rootContainer = document.createElement('div');

@@ -23,7 +23,7 @@ import { NextSeo } from 'next-seo';
 import { landingSEO } from '../../next-seo.config';
 import { useDeviceDetect } from '../../contexts';
 
-import { ADDRESS_KEY, WalletConnectType } from '../../../constants';
+import { ADDRESS_KEY, WalletConnectType } from '@constants/index';
 
 const Landing: React.FC = () => {
   const [address, setAddress] = useState<string>(null);

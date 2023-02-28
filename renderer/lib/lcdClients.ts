@@ -1,6 +1,6 @@
 import { LCDClient } from '@terra-money/terra.js';
-import { TESTNET_LCD_URL } from '../../constants';
-import { LCD_URL } from '../packages/terra-utilities/src/constants';
+import { TESTNET_LCD_URL, } from '@constants/index';
+import { LCD_URL } from '@terra-utilities/index';
 
 export const terraTestnetClient = new LCDClient({
   URL: TESTNET_LCD_URL,

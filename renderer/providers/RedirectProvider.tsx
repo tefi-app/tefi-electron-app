@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, FC, ReactChildren, ReactChild, ReactNode } from 'react';
 import useWallet from '../lib/useWallet';
-import { ADDRESS_KEY } from '../../constants';
+import { ADDRESS_KEY } from '@constants/index';
 
 interface RedirectProviderProps {
   children: ReactChild | ReactChildren | ReactNode;

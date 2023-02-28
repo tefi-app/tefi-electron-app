@@ -6,7 +6,7 @@ import { Editor } from '@editor/index';
 import { MsgExecuteContract } from '@terra-money/terra.js';
 import { ModalLarge, Heading3, InputLabel, Input, ButtonRound } from '../../UIComponents';
 import { CategoryDropDown } from '../SubHeader/CategoryDropDown';
-import { CLUB_SERVER_ROOT, TEFI_DAGORA_CONTRACT_ADDRESS } from '../../../../constants';
+import { CLUB_SERVER_ROOT, TEFI_DAGORA_CONTRACT_ADDRESS } from '@constants/index';
 import { simulateSendContractMsg } from '../../../transactions/sendContract';
 import useWallet from '../../../lib/useWallet';
 import axios from 'axios';
