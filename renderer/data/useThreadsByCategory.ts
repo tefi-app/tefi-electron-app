@@ -72,7 +72,6 @@ export const useThreadsByCategory = (category: string) => {
       process.env.NEXT_PUBLIC_IS_TESTNET ? true : false
     }`;
   };
-
   const allThreads: Thread[] = data ? data.reduce((acm, page) => [...acm, ...page], []) : [];
   const pageThreads = allThreads.slice(0, DEFAULT_LIMIT * currentPage);
 
