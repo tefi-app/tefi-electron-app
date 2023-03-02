@@ -1,4 +1,4 @@
-export default {
+export const TERRA_SYMBOLS = {
     uusd: { name: 'TerraUSD Classic', symbol: 'USTC' },
     uluna: { name: 'Luna Classic', symbol: 'LUNC' },
     uaud: { name: 'Terra Australian Dollar', symbol: 'AUTC' },
