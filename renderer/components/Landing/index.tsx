@@ -44,7 +44,7 @@ const Landing: React.FC = () => {
 
   const onAddressSubmit = () => {
     localStorage.setItem(ADDRESS_KEY, address);
-    router.push('/dashboard');
+    router.push('/agora');
   };
 
   const getWarningText = () => {

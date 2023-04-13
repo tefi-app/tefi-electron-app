@@ -107,7 +107,7 @@ export const PostThreadView: React.FC<Props> = ({ onSend }) => {
       const thread_id = eventAttributes?.[4]?.value;
       const body = { thread_id };
       const isTestnet = process.env.NEXT_PUBLIC_IS_TESTNET ? true : false;
-      await axios.post(CLUB_SERVER_ROOT + '/dagora/thread/cache?isTestnet=' + isTestnet, body);
+      // await axios.post(CLUB_SERVER_ROOT + '/dagora/thread/cache?isTestnet=' + isTestnet, body);
       const key = getMutateKey(0);
       mutate(key);
     } catch (err) {
@@ -126,14 +126,14 @@ export const PostThreadView: React.FC<Props> = ({ onSend }) => {
         ];
         const result = await simulateSendContractMsg(walletAddress, msgs);
         if (!result.error) {
-          setTxFee(result.fee);
+          setTxFee('0.1');
           setIsTxCalculated(true);
         }
         setSimulationLoading(false);
       } else {
         const msgs = [
           new MsgExecuteContract(walletAddress, TEFI_DAGORA_CONTRACT_ADDRESS, {
-            create_thread: { category: DEFAULT_CATEGORY, content: JSON.stringify(content.raw), title },
+            create_thread: { category: category, content: JSON.stringify(content.raw), title },
           }),
         ];
         const data = { msgs, sender: walletAddress };
@@ -180,7 +180,7 @@ export const PostThreadView: React.FC<Props> = ({ onSend }) => {
             <CategoryDropDown selectedCategory={category} setCategory={setCategory} />
           </Box>
           <FeeText>TxFee:</FeeText>
-          <FeeText>{simulationLoading ? 'Loading...' : txFee ? `${txFee} USTC` : DEFAULT_TX_STATE}</FeeText>
+          <FeeText>{simulationLoading ? 'Loading...' : txFee ? `${txFee} LUNA` : DEFAULT_TX_STATE}</FeeText>
         </FeeContainer>
         <Box mt={4}>
           <ButtonRound onClick={onSubmit} disabled={isSubmitDisabled}>

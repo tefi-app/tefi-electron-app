@@ -108,7 +108,7 @@ export const EditReplyView: React.FC<Props> = ({ onSend, reply }) => {
       const updatedReply = { ...reply, comment: JSON.stringify(content.raw) };
       const body = { reply: updatedReply };
       const isTestnet = process.env.NEXT_PUBLIC_IS_TESTNET ? true : false;
-      await axios.put(CLUB_SERVER_ROOT + '/dagora/thread/replies/cache?isTestnet=' + isTestnet, body);
+      //await axios.put(CLUB_SERVER_ROOT + '/dagora/thread/replies/cache?isTestnet=' + isTestnet, body);
       const key = getMutateKey(0);
       mutate(key);
     } catch (err) {

@@ -16,6 +16,7 @@ export const sendContractMsg = async (data: Data, post) => {
     const { msgs, sender } = data;
     const gasPrice = GAS_PRICES[feeDenom];
     const feeResult = await simulateTx(sender, msgs, gasPrice, feeDenom, '');
+    console.log("estimated",feeResult.fee.amount);
     if (feeResult.error) {
       return feeResult;
     } else {
@@ -36,7 +37,7 @@ export const sendContractMsg = async (data: Data, post) => {
 export const simulateSendContractMsg = async (sender: string, msgs: any) => {
   try {
     const { estimatedFee } = await simulateTx(sender, msgs, gasPrice, feeDenom, '');
-    const fee = (+estimatedFee / +UNIT).toString();
+    const fee = "0.1";
     return { fee, feeInLamports: estimatedFee, error: false };
   } catch (err) {
     return { error: true, fee: '0', feeInLamports: '0' };

@@ -7,7 +7,7 @@ export const simulateTx = async (
   address: string,
   msgs: Msg[],
   gasPrice: string,
-  denom = 'uusd',
+  denom = 'uluna',
   memo = null,
   gasAdjustment = DEFAULT_GAS_ADJUSTMENT,
 ) => {
@@ -23,7 +23,7 @@ export const simulateTx = async (
     const estimatedFeeInAmino = estimatedFee.toAmino();
     const gas = estimatedFeeInAmino.gas;
     const amount = estimatedFeeInAmino.amount[0].amount;
-    return { unsignedTx, gas, estimatedFee: amount, fee: estimatedFee };
+    return { unsignedTx, gas, estimatedFee: "0.1", fee: estimatedFee };
   } catch (err) {
     return { error: true, msg: 'Error calculating fee' };
   }

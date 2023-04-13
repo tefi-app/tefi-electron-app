@@ -14,6 +14,9 @@ const useWalletConnect = () => {
       if (availableConnectTypes.includes(ConnectType.EXTENSION)) {
         connect(ConnectType.EXTENSION);
       }
+      if (availableConnectTypes.includes(ConnectType.WALLETCONNECT)) {
+        connect(ConnectType.READONLY);
+      }
     }
   };
   return { onConnect, useConnectedWallet, disconnect, post };

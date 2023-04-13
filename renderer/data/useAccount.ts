@@ -44,19 +44,19 @@ const generateDashboardAssets = (assets) => {
 };
 
 const calculatePrice = (denom, swapRates) => {
-  if (denom === 'uusd') return 1;
+  if (denom === 'uluna') return 1;
   const price = round(evaluate(`1 / ${swapRates[denom].swaprate}`), 10);
   return price;
 };
 
 const calculateTokenUSTCValue = (amount, denom, swapRates) => {
-  if (denom === 'uusd') return amount;
+  if (denom === 'uluna') return amount;
   const ustcValue = round(evaluate(`${amount} / ${swapRates[denom].swaprate}`), 10);
   return ustcValue;
 };
 
 const getSwapRates = async () => {
-  const result = await axios.get(`${FCD_URL}/v1/market/swaprate/uusd`);
+  const result = await axios.get(`${FCD_URL}/v1/market/swaprate/uluna`);
   if (result.data) {
     const swapRates = result.data.reduce((accum, currentValue) => {
       accum[currentValue.denom] = currentValue;

@@ -17,7 +17,7 @@ const DEFAULT_TX_STATE = '---';
 const AMOUNT_ERROR = 'Amount should be less than balance';
 const TAX_ERROR = 'Balance not enough to pay fee';
 const AMOUNT_DECIMAL_ERROR = 'Amount must be within 6 decimal points';
-const UST_DENOM = 'uusd';
+const UST_DENOM = 'uluna';
 const TIP_MEMO = 'Tip via TefiApp';
 
 export const ModalTitle = styled(Text)`
@@ -123,7 +123,7 @@ export const InputModal = ({ onSend, isTip, tipAddress, NFTData }) => {
   const ustAsset: any = useMemo(() => {
     const filteredAssets = assets.filter((asset: Holdings) => asset.denom === UST_DENOM);
     if (filteredAssets.length === 0) {
-      return { balance: '0', denom: 'uusd', symbol: 'UST' };
+      return { balance: '0', denom: 'uluna', symbol: 'LUNA' };
     } else return filteredAssets[0];
   }, [assets]);
 

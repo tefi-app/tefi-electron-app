@@ -115,6 +115,9 @@ const SendModal: React.FC<SendModalTipProps> = ({
       setModalState(ModalState.broadcasted);
       setTxHash(txResult?.result?.txhash);
       setIsPollingTx(true);
+      setTimeout(() => {
+        setModalState(ModalState.success);
+      }, 3000);
     }
     if (error) {
       if (msg === 'User Denied') {

@@ -115,7 +115,7 @@ export const PostCommentView: React.FC<Props> = ({ onSend, replyContent, isVisib
       const comment_id = eventAttributes?.[4]?.value;
       const body = { reply: { comment_id: parseInt(comment_id), author, comment, thread_id: threadId } };
       const isTestnet = process.env.NEXT_PUBLIC_IS_TESTNET ? true : false;
-      await axios.post(CLUB_SERVER_ROOT + '/dagora/thread/replies/cache?isTestnet=' + isTestnet, body);
+      // await axios.post(CLUB_SERVER_ROOT + '/dagora/thread/replies/cache?isTestnet=' + isTestnet, body);
       const key = getMutateKey(0);
       mutate(key);
     } catch (err) {
