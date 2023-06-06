@@ -187,7 +187,7 @@ export const EditThreadView: React.FC<Props> = ({ onSend, thread }) => {
         </Box>
         <FeeContainer>
           <FeeText>TxFee:</FeeText>
-          <FeeText>{simulationLoading ? 'Loading...' : txFee ? `${txFee} USTC` : DEFAULT_TX_STATE}</FeeText>
+          <FeeText>{simulationLoading ? 'Loading...' : txFee ? `${txFee} LUNA` : DEFAULT_TX_STATE}</FeeText>
         </FeeContainer>
         <Box mt={4}>
           <ButtonRound onClick={onSubmit} disabled={isSubmitDisabled}>

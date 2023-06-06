@@ -10,7 +10,7 @@ import { CLUB_DEPOSIT_ADDRESS, WALLET_ADDRESS_TYPE } from '@constants/index';
 import useWallet from '../../lib/useWallet';
 import { sendToken } from '../../transactions/sendToken';
 import ConnectModal from '../../components/ConnectModal';
-import { WalletConnectType } from'@constants/index';
+import { WalletConnectType } from '@constants/index';
 import { throttle, difference } from 'lodash';
 import { LoadingIcon } from '../../components/Icons';
 import { useDeviceDetect } from '../../contexts';
@@ -164,8 +164,8 @@ const Feeds: React.FC = ({ theme: currentTheme, changeTheme, posts, next }: any)
         from: connectedWallet?.terraAddress,
         amount: SEND_AMOUNT,
         memo: text,
-        denom: 'uusd',
-        txDenom: 'uusd',
+        denom: 'uluna',
+        txDenom: 'uluna',
       };
       const newFeedPost: txData = {
         to_address: CLUB_DEPOSIT_ADDRESS,

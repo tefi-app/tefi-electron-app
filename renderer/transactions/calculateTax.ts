@@ -3,7 +3,7 @@ import { Coin } from '@terra-money/terra.js';
 import { LCD_URL } from '@terra-utilities/index';
 import axios from 'axios';
 
-const DEFAULT_DENOM = 'uusd';
+const DEFAULT_DENOM = 'uluna';
 
 const fetchCapital = async (denom = DEFAULT_DENOM) => {
   try {

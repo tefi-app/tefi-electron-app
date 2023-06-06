@@ -3,7 +3,7 @@ import { calculateTax } from './calculateTax';
 import { GAS_PRICES } from './gasPrices';
 import { simulateTx } from './simulateTx';
 
-const DEFAULT_DENOM = 'uusd';
+const DEFAULT_DENOM = 'uluna';
 const UNIT = 1000000;
 
 interface SendTokenTransactionData {

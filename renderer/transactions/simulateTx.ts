@@ -7,7 +7,7 @@ export const simulateTx = async (
   address: string,
   msgs: Msg[],
   gasPrice: string,
-  denom = 'uusd',
+  denom = 'uluna',
   memo = null,
   gasAdjustment = DEFAULT_GAS_ADJUSTMENT,
 ) => {

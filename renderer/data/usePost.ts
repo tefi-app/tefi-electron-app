@@ -24,7 +24,7 @@ const checkValidPost = (post: any) => {
   if (
     post?.tx?.value?.memo &&
     post?.tx?.value?.msg[0].type == 'bank/MsgSend' &&
-    post?.tx?.value?.msg[0]?.value.amount[0].denom == 'uusd' &&
+    post?.tx?.value?.msg[0]?.value.amount[0].denom == 'uluna' &&
     post?.tx?.value?.msg[0]?.value.amount[0].amount / MICRO >= parseFloat(FILTER_POST_UST)
   ) {
     return true;

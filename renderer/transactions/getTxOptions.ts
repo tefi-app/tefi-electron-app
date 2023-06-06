@@ -4,7 +4,7 @@ import useFee from '../utils/useFee';
 
 export const getTxOptions = (msgs: Msg[], memo = undefined) => {
   const { gas, gasPrice, amount } = useFee(msgs.length);
-  const gasPrices = `${gasPrice}uusd`;
+  const gasPrices = `${gasPrice}uluna`;
   const tax = '0';
   const fee = new Fee(gas, { uusd: plus(amount, tax) });
   const txOptions = {

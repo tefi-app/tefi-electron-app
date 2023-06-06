@@ -1,5 +1,5 @@
 export const GAS_PRICES = {
-  uluna: '5.665',
+  uluna: '0.015',
   usdr: '0.104938',
   uusd: '0.15',
   ukrw: '170.0',
