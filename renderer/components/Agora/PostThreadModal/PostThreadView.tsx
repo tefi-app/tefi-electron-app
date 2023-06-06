@@ -126,7 +126,7 @@ export const PostThreadView: React.FC<Props> = ({ onSend }) => {
         ];
         const result = await simulateSendContractMsg(walletAddress, msgs);
         if (!result.error) {
-          setTxFee('0.1');
+          setTxFee(result.fee);
           setIsTxCalculated(true);
         }
         setSimulationLoading(false);

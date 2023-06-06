@@ -139,7 +139,7 @@ export const PostCommentView: React.FC<Props> = ({ onSend, replyContent, isVisib
         </Box>
         <FeeContainer>
           <FeeText>TxFee:</FeeText>
-          <FeeText>{simulationLoading ? 'Loading...' : txFee ? `${txFee} USTC` : DEFAULT_TX_STATE}</FeeText>
+          <FeeText>{simulationLoading ? 'Loading...' : txFee ? `${txFee} LUNA` : DEFAULT_TX_STATE}</FeeText>
         </FeeContainer>
         <Box mt={4}>
           <ButtonRound onClick={onSubmit} disabled={!isTxCalculated}>
